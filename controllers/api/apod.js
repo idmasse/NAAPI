@@ -1,35 +1,21 @@
-const nasaService = require('../../src/utilities/nasa-service')
+const nasaService = require('../../src/utilities/apod-service')
+const Apod = require('../../models/apod')
 
-const getApod = async(req, res) => {
-    try {
-        const apodData = await nasaService.getNasaData('planetary/apod')
-        res.json(apodData)
-    } catch(error) {
-        console.error(`Error fetching APOD data`, error)
-        res.status(500).send(error.message)
-    }
+async function getApod(req, res) {
+    const date = req.query.date
+    const apodData = await nasaService.getNasaData(date)
+    res.json(apodData)
 }
 
-module.exports = { getApod }
+async function saveApod(req, res) {
+    const apodData = req.body 
+    const apod = new Apod(apodData)
+    const savedApod = await apod.save() 
+    res.json(savedApod)
+}
 
-// const fetch = require('node-fetch')
-
-// const NASA_ENDPOINT = 'https://api.nasa.gov'
-
-// const getApod = async (req, res) => {
-//     try {
-//         const fetchRes = await fetch(`${NASA_ENDPOINT}/planetary/apod?api_key=${process.env.NASA_API_KEY}`)
-//         if (!fetchRes.ok) {
-//             throw new Error(`NASA API Error: ${fetchRes.status}`)
-//         }
-//         const apodData = await fetchRes.json()
-//         res.json(apodData)
-//     } catch(error) {
-//         console.error('Error fetching NASA data', error)
-//         res.status(500).send(error.message)
-//     }
-// }
-
-
-// module.exports = { getApod }
+module.exports = {
+    getApod,
+    saveApod
+}
 

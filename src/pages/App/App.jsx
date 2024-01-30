@@ -1,4 +1,3 @@
-import './App.css';
 import { useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
@@ -7,6 +6,8 @@ import NavBar from '../../components/NavBar/NavBar';
 import Apod from "../Apod/Apod";
 import Posts from '../Posts/Posts';
 import SearchArchive from '../SearchArchive/SearchArchive';
+import Profile from '../Profile/Profile';
+import './App.css';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -21,6 +22,7 @@ export default function App() {
               <Route path="/" element={<Apod />} />
               <Route path="/posts" element={<Posts />} />
               <Route path="/search" element={<SearchArchive />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </>
           :

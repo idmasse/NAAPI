@@ -1,6 +1,6 @@
 # NAAPI: NASA Astronomy API
 ## Explore NASA's astronomy image of the day and astronomy image/video archive
-### Overview: This app allows users to explore, bookmark, and share images and videos from NASA's vast media library.
+### This app allows users to explore, bookmark, and share images and videos from NASA's vast media library.
 
 NAAPI leverages NASA's collection of space-related media, providing an educational and engaging experience for users. The CRUD operations are integral to the user interaction with the application, allowing personalized and dynamic content exploration and social sharing.
 
@@ -10,7 +10,9 @@ Backend: Node | Express | MongoDB
 
 ## Features:
 Explore: Users can explore past and current NASA APOD's (Astronomy Image(s) of the Day), and search for images and videos from NASA's vast image archive based on keywords and oher filtering criteria.
+<br/>
 Bookmark/Save Media: Users can save their favorite media to their profile.
+<br/>
 User Profile: A personalized area to view and manage saved media and personal information.
 
 ## NASA API Integration:

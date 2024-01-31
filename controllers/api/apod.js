@@ -8,14 +8,32 @@ async function getApod(req, res) {
 }
 
 async function saveApod(req, res) {
-    const apodData = req.body 
-    const apod = new Apod(apodData)
-    const savedApod = await apod.save() 
+    const apodData = req.body
+    const userId = req.user._id
+
+    const apod = new Apod({
+        ...apodData,
+        user: userId,
+    })
+
+    const savedApod = await apod.save()
     res.json(savedApod)
+}
+
+async function getSavedApod(req, res) {
+    const savedApods = await Apod.find({ user: req.user._id })
+    res.json(savedApods)
+}
+
+async function postApod(req, res) {
+    const apodData = req.body
+    const userId = req.user._id
 }
 
 module.exports = {
     getApod,
-    saveApod
+    saveApod,
+    getSavedApod,
+    postApod
 }
 

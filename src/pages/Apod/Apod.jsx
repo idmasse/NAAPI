@@ -7,7 +7,8 @@ import "./Apod.css"
 
 export default function Apod() {
     const [Apod, setApod] = useState([])
-    const [selectedDate, setSelectedDate] = useState(new Date())
+    const initialDate = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000)
+    const [selectedDate, setSelectedDate] = useState(initialDate)
     const user = getUser()
 
     useEffect(() => {

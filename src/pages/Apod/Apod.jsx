@@ -23,6 +23,14 @@ export default function Apod() {
         const apodToSave = await apodAPI.saveApod(Apod)
     }
 
+    async function handlePostApod() {
+        const apodToPost = await apodAPI.postApod(Apod)
+    }
+
+    // async function handleShareApod() {
+    //     const apodToShare = await apodAPI.shareApod(Apod)
+    // }
+
     return (
         <div>
             <h1>NASA Astronomy Picture of the Day | {Apod.date}</h1>
@@ -35,12 +43,19 @@ export default function Apod() {
                     </a>
                     <p>{Apod.explanation}</p>
                     {/* <p>Media credit: {Apod.copyright}</p> */}
-                    {user ? (
-                        <button onClick={handleSaveApod}>Save</button>
-                    ) : (
-                        <button>Login</button>
-                    )
+                    {
+                        user ? (
+                            <>
+                                <button onClick={handleSaveApod}>Save</button>
+                                <button onClick={handlePostApod}>Post</button>
+                                {/* <button onClick={handleShareApod}>Share</button> */}
+                            </>
+                        ) : (
+                            <button>Login</button>
+                        )
                     }
+
+
                 </div>
             )}
         </div>

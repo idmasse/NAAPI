@@ -8,6 +8,8 @@ const apodSchema = new Schema ({
     explanation: { type: String },
     date: { type: String },
     user: { type: Schema.Types.ObjectId, ref: 'User' }
+}, {
+    timestamps: true
 })
 
 module.exports = mongoose.model('Apod', apodSchema)

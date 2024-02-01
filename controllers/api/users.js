@@ -1,4 +1,5 @@
 const User = require('../../models/user')
+const Profile = require('../../models/profile')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
@@ -11,8 +12,9 @@ module.exports = {
 async function create(req, res) {
   try {
     const user = await User.create(req.body)
+    await Profile.create({ user: user._id })
     const token = createJWT(user)
-    res.json(token)
+    res.json({ token, user: { id: user._id, name: user.name, email: user.email } })
   } catch (err) {
     res.status(400).json(err)
     console.log(`An error occured: ${err}`)

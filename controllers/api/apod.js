@@ -1,5 +1,6 @@
 const nasaService = require('../../src/utilities/apod-service')
 const Apod = require('../../models/apod')
+const Profile = require('../../models/profile')
 
 async function getApod(req, res) {
     const date = req.query.date
@@ -8,21 +9,34 @@ async function getApod(req, res) {
 }
 
 async function saveApod(req, res) {
-    const apodData = req.body
-    const userId = req.user._id
+    const apodData = req.body;
+    const userId = req.user._id;
 
-    const apod = new Apod({
-        ...apodData,
-        user: userId,
-    })
+    try {
+        let apod = await Apod.findOne({ uniqueId: apodData.uniqueId })
+        if (!apod) {
+            apod = await Apod.create({ 
+                ...apodData, 
+                uniqueId: apodData.date 
+            })
+        }
 
-    const savedApod = await apod.save()
-    res.json(savedApod)
+        const profile = await Profile.findOneAndUpdate(
+            { user: userId },
+            { $addToSet: { savedApods: apod._id } },
+            { new: true }
+        );
+
+        res.json(profile)
+    } catch (error) {
+        res.status(500).json({ message: 'Error saving APOD', error: error.toString() })
+    }
 }
 
 async function getSavedApod(req, res) {
-    const savedApods = await Apod.find({ user: req.user._id })
-    res.json(savedApods)
+    const userId = req.user._id
+    const profile = await Profile.findOne({ user: userId }).populate('savedApods')
+    res.json(profile.savedApods);
 }
 
 async function postApod(req, res) {

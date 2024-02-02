@@ -9,45 +9,55 @@ async function getApod(req, res) {
 }
 
 async function saveApod(req, res) {
-    const apodData = req.body;
-    const userId = req.user._id;
+    const apodData = req.body
+    const userId = req.user._id
+    const profile = await Profile.findOne({ user: userId }).populate('savedApods')
 
-    try {
-        let apod = await Apod.findOne({ uniqueId: apodData.uniqueId })
-        if (!apod) {
-            apod = await Apod.create({ 
-                ...apodData, 
-                uniqueId: apodData.date 
-            })
-        }
+    if (profile.savedApods.some(savedApod => savedApod.date === apodData.date)) {
+        res.status(400).json({ message: 'APOD with the same date already saved' })
+    } else {
+        const apod = await Apod.create({
+            ...apodData,
+            uniqueId: apodData.date
+        })
 
-        const profile = await Profile.findOneAndUpdate(
-            { user: userId },
-            { $addToSet: { savedApods: apod._id } },
-            { new: true }
-        );
+        profile.savedApods.push(apod)
+        await profile.save()
 
         res.json(profile)
-    } catch (error) {
-        res.status(500).json({ message: 'Error saving APOD', error: error.toString() })
     }
 }
 
 async function getSavedApod(req, res) {
     const userId = req.user._id
     const profile = await Profile.findOne({ user: userId }).populate('savedApods')
-    res.json(profile.savedApods);
+    res.json(profile.savedApods)
 }
 
-async function postApod(req, res) {
-    const apodData = req.body
-    const userId = req.user._id
-}
+// async function postApod(req, res) {
+//     const apodData = req.body
+//     const userId = req.user._id
+//     const profile = await Profile.findOne({ user: userId}).populate('postedApods')
+
+//     if (profile.postedApods.some(postedApod => postedApod.date === apodData.date)) {
+//         res.status(400).json({ message: 'APOD with the same date already posted'})
+//     } else {
+//         const apod = await Apod.create({
+//             ...apodData,
+//             uniqueId: apodData.date
+//         })
+
+//         profile.postedApods.push(apod)
+//         await profile.save()
+
+//         res.json(profile)
+//     }
+// }
 
 module.exports = {
     getApod,
     saveApod,
     getSavedApod,
-    postApod
+    // postApod
 }
 

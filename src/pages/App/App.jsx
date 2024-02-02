@@ -36,11 +36,13 @@ export default function App() {
               <Logo />
               <div className="navbar-links">
                 <Link to="/">Home</Link>
+                <Link to="/posts">Posts</Link>
                 <Link to="/login">Login</Link>
               </div>
             </nav>
             <Routes>
               <Route path="/" element={<Apod />} />
+              <Route path="/posts" element={<Posts />} />
               <Route path="/login" element={<AuthPage setUser={setUser} navigate={navigate} />} />
             </Routes>
           </>

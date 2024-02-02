@@ -1,13 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const apodCtrl = require('../../controllers/api/apod')
-const postCtrl = require('../../controllers/api/post')
+const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
+// /api/apod
 router.get('/', apodCtrl.getApod)
-router.post('/save', apodCtrl.saveApod)
-router.get('/savedapods', apodCtrl.getSavedApod)
-router.post('/post', postCtrl.postApod)
-router.get('/postedapods', postCtrl.getPostedApod)
-router.get('/postedapods/all', postCtrl.getAllPostedApods)
+router.post('/save', ensureLoggedIn, apodCtrl.saveApod)
+router.get('/savedapods', ensureLoggedIn, apodCtrl.getSavedApod)
 
 module.exports = router

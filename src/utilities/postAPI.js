@@ -1,9 +1,9 @@
 import sendRequest from './send-request'
 
-const BASE_URL = '/api/apod'
+const BASE_URL = '/api/post'
 
 export async function postApod(apodData) {
-    return sendRequest(`${BASE_URL}/post`, 'POST', apodData)
+    return sendRequest(BASE_URL, 'POST', apodData)
 }
 
 export async function getPostedApods(token) {

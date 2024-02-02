@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react"
 import { getUser } from "../../utilities/users-service"
 import * as apodAPI from "../../utilities/apodAPI"
+import * as postAPI from "../../utilities/postAPI"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import "./Apod.css"
 
 export default function Apod() {
+    const initialDate = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000)
     const [Apod, setApod] = useState([])
-    const initialDate = new Date(
-        new Date().getTime() - new Date().getTimezoneOffset() * 60000
-    )
     const [selectedDate, setSelectedDate] = useState(initialDate)
     const [alreadySaved, setAlreadySaved] = useState("")
     const [alreadyPosted, setAlreadyPosted] = useState("")
@@ -36,7 +35,7 @@ export default function Apod() {
 
     async function handlePostApod() {
         try {
-            const apodToPost = await apodAPI.postApod(Apod)
+            const apodToPost = await postAPI.postApod(Apod)
         } catch (error) {
             setAlreadyPosted("You already posted this image!")
             setTimeout(() => {
@@ -61,13 +60,13 @@ export default function Apod() {
                         <img className="apod-image" src={Apod.url} alt={Apod.title} />
                     </a>
                     <p>{Apod.explanation}</p>
-                    { user ? (
-                            <>
-                                <button onClick={handleSaveApod}>Save</button>
-                                <button onClick={handlePostApod}>Post</button>
-                                {/* <button onClick={handleShareApod}>Share</button> */}
-                            </>
-                        ) : ( <button>Login</button> )
+                    {user ? (
+                        <>
+                            <button onClick={handleSaveApod}>Save</button>
+                            <button onClick={handlePostApod}>Post</button>
+                            {/* <button onClick={handleShareApod}>Share</button> */}
+                        </>
+                    ) : (<button>Login</button>)
                     }
                 </div>
             )}

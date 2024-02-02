@@ -3,7 +3,7 @@ import './Post.css'
 export default function Post({ user, postedApods }) {
     return (
         <div>
-            {user && postedApods.map((apod, index) => (
+            {postedApods.map((apod, index) => (
                 <div key={index} className="posted-apod">
                     <h2>{apod.user.name}</h2>
                     <h3>{apod.title}</h3>

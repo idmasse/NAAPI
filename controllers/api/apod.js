@@ -34,37 +34,9 @@ async function getSavedApod(req, res) {
     res.json(profile.savedApods)
 }
 
-async function postApod(req, res) {
-    const apodData = req.body
-    const userId = req.user._id
-    const profile = await Profile.findOne({ user: userId}).populate('postedApods')
-
-    if (profile.postedApods.some(postedApod => postedApod.date === apodData.date)) {
-        res.status(400).json({ message: 'APOD with the same date already posted'})
-    } else {
-        const apod = await Apod.create({
-            ...apodData,
-            uniqueId: apodData.date
-        })
-
-        profile.postedApods.push(apod)
-        await profile.save()
-
-        res.json(profile)
-    }
-}
-
-async function getPostedApod(req, res) {
-    const userId = req.user._id
-    const profile = await Profile.findOne({ user: userId }).populate('postedApods')
-    res.json(profile.postedApods)
-}
-
 module.exports = {
     getApod,
     saveApod,
     getSavedApod,
-    postApod,
-    getPostedApod,
 }
 

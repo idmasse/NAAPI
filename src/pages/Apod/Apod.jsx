@@ -45,34 +45,33 @@ export default function Apod() {
 
     return (
         <div className="apod-container">
-        <div className="content-container">
-        <div className="text-container">Nasa Astronomy Photo of the Day
-            <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} utcOffset={0} />
-          </div>
-          <div className="image-container">
-            <a href={Apod.hdurl} target="_blank" title={Apod.title} rel="noreferrer">
-              <img className="apod-image" src={Apod.url} alt={Apod.title} />
-            </a>
-            <div className="image-overlay">
-              <div className="mobile-content">
-                <h2 className="apod-title">{Apod.title}</h2>
-                {alreadySaved && <div className="warning">{alreadySaved}</div>}
-                {alreadyPosted && <div className="warning">{alreadyPosted}</div>}
-                <p className="apod-explanation">{Apod.explanation}</p>
-                {user ? (
-                  <div className="button-container">
-                    <button onClick={handleSaveApod}>Save</button>
-                    <button onClick={handlePostApod}>Post</button>
-                  </div>
-                ) : (
-                  <button>Login</button>
-                )}
-              </div>
+            <div className="content-container">
+                <div className="text-container">
+                    <span className="napod">Nasa Astronomy Photo of the Day</span>
+                    <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} utcOffset={0} />
+                    {alreadySaved && <div className="warning">{alreadySaved}</div>}
+                    {alreadyPosted && <div className="warning">{alreadyPosted}</div>}
+                </div>
+                <div className="image-container">
+                    <a href={Apod.hdurl} target="_blank" title={Apod.title} rel="noreferrer">
+                        <img className="apod-image" src={Apod.url} alt={Apod.title} />
+                    </a>
+                    <div className="image-overlay">
+                        <div className="mobile-content">
+                            <h2 className="apod-title">{Apod.title}</h2>
+                            <p className="apod-explanation">{Apod.explanation}</p>
+                            {user ? (
+                                <div className="button-container">
+                                    <button onClick={handleSaveApod}>Save</button>
+                                    <button onClick={handlePostApod}>Post</button>
+                                </div>
+                            ) : (
+                                <button>Login</button>
+                            )}
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
         </div>
-      </div>
-      
-      );
+    )
 }

@@ -6,7 +6,8 @@ const apodSchema = new Schema ({
     url: { type: String, required: true },
     hdurl: { type: String },
     explanation: { type: String },
-    date: { type: String }
+    date: { type: String },
+    user: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
     timestamps: true
 })

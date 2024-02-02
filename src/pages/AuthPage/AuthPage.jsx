@@ -1,10 +1,10 @@
-import SignUpFormFunc from "../../components/SignUpFormFunc/SignUpFormFunc";
+import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm"
 
 export default function AuthPage({ setUser }) {
    return (
       <main>
-         <SignUpFormFunc setUser={setUser}/>
+         <SignUpForm setUser={setUser}/>
          <LoginForm setUser={setUser}/>
       </main>
    )

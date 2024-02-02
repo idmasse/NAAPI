@@ -16,7 +16,11 @@ export async function getSavedApod(token) {
 }
 
 export async function postApod(apodData) {
-    return sendRequest(`${BASE_URL}/postapod`, apodData)
+    return sendRequest(`${BASE_URL}/post`, 'POST', apodData)
+}
+
+export async function getPostedApods(token) {
+    return sendRequest(`${BASE_URL}/postedapods`, token)
 }
 
 // export async function shareApod() {

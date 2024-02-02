@@ -5,6 +5,7 @@ const apodCtrl = require('../../controllers/api/apod')
 router.get('/', apodCtrl.getApod)
 router.post('/save', apodCtrl.saveApod)
 router.get('/savedApods', apodCtrl.getSavedApod)
-router.post('/postapod', apodCtrl.postApod)
+router.post('/post', apodCtrl.postApod)
+router.get('/postedapods', apodCtrl.getPostedApod)
 
 module.exports = router

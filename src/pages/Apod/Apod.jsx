@@ -11,7 +11,8 @@ export default function Apod() {
         new Date().getTime() - new Date().getTimezoneOffset() * 60000
     )
     const [selectedDate, setSelectedDate] = useState(initialDate)
-    const [alreadySaved, setalreadySaved] = useState("")
+    const [alreadySaved, setAlreadySaved] = useState("")
+    const [alreadyPosted, setAlreadyPosted] = useState("")
     const user = getUser()
 
     useEffect(() => {
@@ -26,16 +27,23 @@ export default function Apod() {
         try {
             const apodToSave = await apodAPI.saveApod(Apod)
         } catch (error) {
-            setalreadySaved("This image has already been saved.")
+            setAlreadySaved("You already saved this image!")
             setTimeout(() => {
-                setalreadySaved("")
+                setAlreadySaved("")
             }, 2500)
         }
     }
 
-    // async function handlePostApod() {
-    //     const apodToPost = await apodAPI.postApod(Apod)
-    // }
+    async function handlePostApod() {
+        try {
+            const apodToPost = await apodAPI.postApod(Apod)
+        } catch (error) {
+            setAlreadyPosted("You already posted this image!")
+            setTimeout(() => {
+                setAlreadyPosted("")
+            }, 2500)
+        }
+    }
 
     return (
         <div>
@@ -48,6 +56,7 @@ export default function Apod() {
                 <div>
                     <h2>{Apod.title} </h2>
                     {alreadySaved && <div className="warning">{alreadySaved}</div>}
+                    {alreadyPosted && <div className="warning">{alreadyPosted}</div>}
                     <a href={Apod.hdurl} target="_blank" title={Apod.title} rel="noreferrer">
                         <img className="apod-image" src={Apod.url} alt={Apod.title} />
                     </a>
@@ -55,7 +64,7 @@ export default function Apod() {
                     { user ? (
                             <>
                                 <button onClick={handleSaveApod}>Save</button>
-                                {/* <button onClick={handlePostApod}>Post</button> */}
+                                <button onClick={handlePostApod}>Post</button>
                                 {/* <button onClick={handleShareApod}>Share</button> */}
                             </>
                         ) : ( <button>Login</button> )

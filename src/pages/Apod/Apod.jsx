@@ -7,9 +7,8 @@ import "react-datepicker/dist/react-datepicker.css"
 import "./Apod.css"
 
 export default function Apod() {
-    const initialDate = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000)
     const [Apod, setApod] = useState([])
-    const [selectedDate, setSelectedDate] = useState(initialDate)
+    const [selectedDate, setSelectedDate] = useState(new Date())
     const [alreadySaved, setAlreadySaved] = useState("")
     const [alreadyPosted, setAlreadyPosted] = useState("")
     const user = getUser()
@@ -50,6 +49,7 @@ export default function Apod() {
             <DatePicker
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
+                utcOffset={0}
             />
             {Apod && (
                 <div>

@@ -2,13 +2,14 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
-    padding:10px;
-    background-color: #ccc;
+    /* padding:10px; */
+    /* background-color: #ccc; */
 }
 
 .navbar-links {
     display: flex;
     gap:15px;
-    margin-left:auto;
+    /* margin-left:auto; */
+
     margin-right: 15px;
 }

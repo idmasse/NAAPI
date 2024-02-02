@@ -11,6 +11,5 @@ export default function SavedApods({ savedApods }) {
                 </div>
             ))}
         </div>
-
     )
 }

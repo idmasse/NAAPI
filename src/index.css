@@ -15,19 +15,11 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--white);
-  padding: 2vmin;
+  font-family: sans-serif;
+  background-color: #f3f3f3;
+  /* background-color: #181616; */
+  /* background: linear-gradient(90deg, #040406, #322f3e, #282735, #35353c, #333);  padding: 2vmin; */
   height: 100vh;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 #root {
@@ -84,11 +76,6 @@ code {
   border-radius: 1vmin;
 }
 
-p.error-message {
-  color: var(--orange);
-  text-align: center;
-}
-
 form {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -108,7 +95,7 @@ input {
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
+  background-image: none !important;
   outline: none;
 }
 

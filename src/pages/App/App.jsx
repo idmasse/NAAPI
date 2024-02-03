@@ -8,6 +8,7 @@ import Apod from "../Apod/Apod"
 import Posts from '../Posts/Posts'
 import SearchArchive from '../SearchArchive/SearchArchive'
 import Profile from '../Profile/Profile'
+import ApodDetail from '../../components/ApodDetail/ApodDetail'
 import './App.css'
 import '../../components/NavBar/NavBar.css'
 import '../../components/Logo/Logo.css'
@@ -28,6 +29,7 @@ export default function App() {
               <Route path="/posts" element={<Posts />} />
               <Route path="/search" element={<SearchArchive />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="apods/:id" element={<ApodDetail />} />
             </Routes>
           </>
           :

@@ -7,5 +7,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 router.get('/', apodCtrl.getApod)
 router.post('/save', ensureLoggedIn, apodCtrl.saveApod)
 router.get('/savedapods', ensureLoggedIn, apodCtrl.getSavedApod)
+router.get('/:id', apodCtrl.getApodDetail)
 
 module.exports = router

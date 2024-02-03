@@ -10,7 +10,6 @@ import "./Apod.css"
 export default function Apod() {
     const [Apod, setApod] = useState([])
     const [selectedDate, setSelectedDate] = useState(new Date())
-    // const [selectedDate, setSelectedDate] = useState(getFormattedDate())
     const [alreadySaved, setAlreadySaved] = useState("")
     const [alreadyPosted, setAlreadyPosted] = useState("")
     const user = getUser()
@@ -69,7 +68,6 @@ export default function Apod() {
                         <img className="apod-image" src={Apod.url} alt={Apod.title} />
                     </a>
                     <div className="image-overlay">
-                        <div className="mobile-content">
                             <h2 className="apod-title">{Apod.title}</h2>
                             <p className="apod-explanation">{Apod.explanation}</p>
 
@@ -81,8 +79,6 @@ export default function Apod() {
                             ) : (
                                 <Link to="/login"><button>Login</button></Link>
                             )}
-
-                        </div>
                     </div>
                 </div>
             </div>

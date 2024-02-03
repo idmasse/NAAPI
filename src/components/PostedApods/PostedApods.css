@@ -4,7 +4,7 @@
     align-items: center; 
     flex-wrap: wrap; 
     gap: 20px; 
-    background-color: #000000d1;
+    background-color: var(--main-background);
   }
   
   .posted-apod-profile {

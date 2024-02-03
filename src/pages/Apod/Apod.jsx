@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 import { getUser } from "../../utilities/users-service"
 import { Link } from 'react-router-dom'
+import DatePicker from "react-datepicker"
 import * as apodAPI from "../../utilities/apodAPI"
 import * as postAPI from "../../utilities/postAPI"
-import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import "./Apod.css"
 
@@ -68,17 +68,16 @@ export default function Apod() {
                         <img className="apod-image" src={Apod.url} alt={Apod.title} />
                     </a>
                     <div className="image-overlay">
-                            <h2 className="apod-title">{Apod.title}</h2>
-                            <p className="apod-explanation">{Apod.explanation}</p>
-
-                            {user ? (
-                                <div className="button-container">
-                                    <button className="save-button" onClick={handleSaveApod}>Save</button>
-                                    <button className="post-button" onClick={handlePostApod}>Post</button>
-                                </div>
-                            ) : (
-                                <Link to="/login"><button>Login</button></Link>
-                            )}
+                        <h2 className="apod-title">{Apod.title}</h2>
+                        <p className="apod-explanation">{Apod.explanation}</p>
+                        {user ? (
+                            <div className="button-container">
+                                <button className="save-button" onClick={handleSaveApod}>Save</button>
+                                <button className="post-button" onClick={handlePostApod}>Post</button>
+                            </div>
+                        ) : (
+                            <Link to="/login"><button>Login</button></Link>
+                        )}
                     </div>
                 </div>
             </div>

@@ -73,8 +73,8 @@ export default function Apod() {
                             <p className="apod-explanation">{Apod.explanation}</p>
                             {user ? (
                                 <div className="button-container">
-                                    <button onClick={handleSaveApod}>Save</button>
-                                    <button onClick={handlePostApod}>Post</button>
+                                    <button className="save-button" onClick={handleSaveApod}>Save</button>
+                                    <button className="post-button" onClick={handlePostApod}>Post</button>
                                 </div>
                             ) : (
                                 <button>Login</button>

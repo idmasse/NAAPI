@@ -89,11 +89,8 @@
     margin-top: 10px;
   }
   
-
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  .save-button, .post-button {
+    width: 10%;
   }
   
   /* Media query */
@@ -134,5 +131,10 @@
       flex-direction: column; 
       margin-top: 5px; 
     }
+
+    .save-button, .post-button {
+      width: 100%;
+    }
+
   }
   

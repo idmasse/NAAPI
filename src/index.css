@@ -89,6 +89,12 @@ button:hover {
   color: red;
 }
 
+.blur-form {
+  background:transparent;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(15px);
+}
+
 /* LOADER CSS */
 .loader {
   width: 48px;

@@ -28,7 +28,7 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div className="form-wrapper">
-      <div className="form-container">
+      <div className="form-container blur-form">
         <h2>Login</h2>
         <p className="error-message">{error}</p>
         <form autoComplete="off" onSubmit={handleSubmit}>

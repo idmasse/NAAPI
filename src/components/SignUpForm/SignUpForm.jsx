@@ -36,10 +36,10 @@ export default function SignUpFormFunc({ setUser }) {
 
     return (
         <div className="form-wrapper">
-            <div className="form-container">
+            <div className="form-container blur-form">
                 <h2>Signup</h2>
                 <p className="error-message">{formData.error}</p>
-                <form autoComplete="off" onSubmit={handleSubmit}>
+                <form  autoComplete="off" onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Name:</label>
                         <input type="text" name="name" value={formData.name} onChange={handleChange} required />

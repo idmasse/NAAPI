@@ -34,9 +34,15 @@ async function getSavedApod(req, res) {
     res.json(profile.savedApods)
 }
 
+async function getApodDetail(req, res) {
+    const apod = await Apod.findById(req.params.id)
+    res.json(apod)
+}
+
 module.exports = {
     getApod,
     saveApod,
     getSavedApod,
+    getApodDetail,
 }
 

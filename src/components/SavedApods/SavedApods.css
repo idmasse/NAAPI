@@ -6,8 +6,6 @@
     background-color: var(--main-background);
   }
   
-
-
   .saved-apod {
     display: flex;
     justify-content:flex-start; 
@@ -15,7 +13,6 @@
     max-width: 250px;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
   
   .saved-apod img {

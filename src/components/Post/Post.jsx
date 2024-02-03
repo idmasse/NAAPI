@@ -7,8 +7,8 @@ export default function Post({ user, postedApods }) {
       {postedApods.map((apod, index) => (
         <div key={index} className="posted-apod">
           <div className="title-container">
-            <h2>{apod.user.name}</h2>
-            <h3>{apod.title}</h3>
+            <h3>{apod.user.name}</h3>
+            <h4>{apod.title}</h4>
           </div>
           <Link to={`/apods/${apod._id}`} key={apod._id}>
             <img className="post-image" src={apod.url} alt={apod.title} />

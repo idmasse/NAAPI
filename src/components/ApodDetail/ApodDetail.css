@@ -1,0 +1,55 @@
+/* CSS classes for the overlay effect */
+.apod-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .apod-detail-title {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .apod-detail-image-container {
+    position: relative;
+  }
+  
+  .apod-detail-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .apod-detail-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    backdrop-filter: blur(15px);
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .apod-detail-image-container:hover .apod-detail-overlay {
+    opacity: 1;
+  }
+  
+  .apod-detail-explanation {
+    text-align: justify;
+    color: rgb(227, 226, 226);
+    text-shadow: 1px 1px 1px grey;
+    line-height: 1.5em;
+    padding: 20px;
+  }
+  

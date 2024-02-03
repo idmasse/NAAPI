@@ -21,8 +21,9 @@
   .react-datepicker__input-container > input {
     background-color: rgb(57, 56, 56);
     color: rgb(229, 226, 226);
-    width:110px;
+    width:145px;
     cursor: pointer;
+    text-align: center;
   }
 
   .react-datepicker-ignore-onclickoutside {

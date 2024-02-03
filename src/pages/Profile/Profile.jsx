@@ -5,7 +5,6 @@ import SavedApods from '../../components/SavedApods/SavedApods'
 import PostedApods from '../../components/PostedApods/PostedApods'
 import * as apodAPI from '../../utilities/apodAPI'
 import * as postAPI from '../../utilities/postAPI'
-import "./Profile.css"
 
 export default function Profile() {
     const [savedApods, setSavedApods] = useState([])

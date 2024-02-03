@@ -1,4 +1,4 @@
-main.AuthPage > h1, h2 {
+main.AuthPage > h1, main.AuthPage > h2 {
     text-align: center;
     color:azure;
     margin-right:300px;

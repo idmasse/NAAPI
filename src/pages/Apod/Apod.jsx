@@ -9,6 +9,7 @@ import "./Apod.css"
 export default function Apod() {
     const [Apod, setApod] = useState([])
     const [selectedDate, setSelectedDate] = useState(new Date())
+    // const [selectedDate, setSelectedDate] = useState(getFormattedDate())
     const [alreadySaved, setAlreadySaved] = useState("")
     const [alreadyPosted, setAlreadyPosted] = useState("")
     const user = getUser()
@@ -48,7 +49,7 @@ export default function Apod() {
             <div className="content-container">
                 <div className="text-container">
                     <span className="napod">Nasa Astronomy Photo of the Day</span>
-                    <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} utcOffset={0} />
+                    <DatePicker maxDate={new Date()} dateFormat="yyyy/MM/dd" selected={selectedDate} onChange={(date) => setSelectedDate(date)} utcOffset={0} />
                     {alreadySaved && <div className="warning">{alreadySaved}</div>}
                     {alreadyPosted && <div className="warning">{alreadyPosted}</div>}
                 </div>

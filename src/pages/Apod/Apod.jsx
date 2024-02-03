@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { getUser } from "../../utilities/users-service"
+import { Link } from 'react-router-dom'
 import * as apodAPI from "../../utilities/apodAPI"
 import * as postAPI from "../../utilities/postAPI"
 import DatePicker from "react-datepicker"
@@ -77,7 +78,7 @@ export default function Apod() {
                                     <button className="post-button" onClick={handlePostApod}>Post</button>
                                 </div>
                             ) : (
-                                <button>Login</button>
+                                <Link to="/login"><button>Login</button></Link>
                             )}
                         </div>
                     </div>

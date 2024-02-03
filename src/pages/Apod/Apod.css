@@ -80,8 +80,10 @@
     line-height: 1.5em;
   }
   
-  .warning {
+  .apod-warning {
+    font-weight: bold;
     color: red;
+    margin-left:320px;
   }
   
   .button-container {

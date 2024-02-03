@@ -61,8 +61,8 @@ export default function Apod() {
                         selected={selectedDate}
                         onChange={(date) => setSelectedDate(date)}
                         utcOffset={0} />
-                    {alreadySaved && <div className="warning">{alreadySaved}</div>}
-                    {alreadyPosted && <div className="warning">{alreadyPosted}</div>}
+                    {alreadySaved && <span className="apod-warning">{alreadySaved}</span>}
+                    {alreadyPosted && <span className="apod-warning">{alreadyPosted}</span>}
                 </div>
                 <div className="image-container">
                     <a href={Apod.hdurl} target="_blank" title={Apod.title} rel="noreferrer">
@@ -72,6 +72,7 @@ export default function Apod() {
                         <div className="mobile-content">
                             <h2 className="apod-title">{Apod.title}</h2>
                             <p className="apod-explanation">{Apod.explanation}</p>
+
                             {user ? (
                                 <div className="button-container">
                                     <button className="save-button" onClick={handleSaveApod}>Save</button>
@@ -80,6 +81,7 @@ export default function Apod() {
                             ) : (
                                 <Link to="/login"><button>Login</button></Link>
                             )}
+
                         </div>
                     </div>
                 </div>

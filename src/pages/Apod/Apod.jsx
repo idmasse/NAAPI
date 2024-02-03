@@ -49,7 +49,17 @@ export default function Apod() {
             <div className="content-container">
                 <div className="text-container">
                     <span className="napod">Nasa Astronomy Photo of the Day</span>
-                    <DatePicker maxDate={new Date()} dateFormat="yyyy/MM/dd" selected={selectedDate} onChange={(date) => setSelectedDate(date)} utcOffset={0} />
+                    <DatePicker
+                        peekNextMonth
+                        showMonthDropdown
+                        showYearDropdown
+                        dropdownMode="select"
+                        dateFormat="yyyy/MM/dd"
+                        minDate={new Date('1995-11-27')}
+                        maxDate={new Date()}
+                        selected={selectedDate}
+                        onChange={(date) => setSelectedDate(date)}
+                        utcOffset={0} />
                     {alreadySaved && <div className="warning">{alreadySaved}</div>}
                     {alreadyPosted && <div className="warning">{alreadyPosted}</div>}
                 </div>

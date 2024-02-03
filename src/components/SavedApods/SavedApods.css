@@ -1,25 +1,26 @@
 .saved-apods-container {
     display: flex;
     justify-content: center; 
-    align-items: center; 
     flex-wrap: wrap; 
     gap: 20px; 
+    background-color: var(--main-background);
   }
   
+
+
   .saved-apod {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content:flex-start; 
     flex-direction: column; 
     max-width: 250px;
-    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
   
   .saved-apod img {
-    max-width: 100%;
-    height: auto; 
+    width: 250px;
+    height: 250px; 
+    border-radius: 20px;
   }
-  
+

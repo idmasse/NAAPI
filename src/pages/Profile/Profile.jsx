@@ -28,9 +28,9 @@ export default function Profile() {
     return (
         <>
             <ProfileInfo user={user} />
-            <h3>Saved APODs</h3>
+            <h3 style={{textAlign:"center", color:"#fff"}}>Saved APODs</h3>
             <SavedApods savedApods={savedApods} />
-            <h3>Posted APODs</h3>
+            <h3 style={{textAlign:"center", color:"#fff"}}>Posted APODs</h3>
             <PostedApods postedApods={postedApods} />
         </>
     )

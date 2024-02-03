@@ -21,7 +21,7 @@ export default function NavBar({ user, setUser }) {
       </div>
       {/* Hello {user.name}
         &nbsp | &nbsp */}
-      <Link to="/" onClick={handleLogOut}>Logout</Link>
+      <Link to="/" onClick={handleLogOut}><span style={{color:"#fff"}}>Logout</span></Link>
     </nav>
   )
 }

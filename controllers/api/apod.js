@@ -40,7 +40,19 @@ async function getApodDetail(req, res) {
 }
 
 async function deleteSavedApod(req, res) {
-    const apodToDelete = await Apod.findById(req.params.id)
+    const apodId = req.params.id
+    const userId = req.user.id
+
+    const apodToDelete = await Apod.findById(apodId)
+    const profile = await Profile.findOne({ user: userId })
+
+    if (profile) {
+        profile.savedApods.pull(apodId)
+        await profile.save()
+    }
+
+    await Apod.findByIdAndDelete(apodId)
+    
     res.json(apodToDelete)
 }
 

@@ -25,13 +25,18 @@ export default function Profile() {
         fetchPostedApods()
     }, [])
 
+    const deleteApod = async(id) => {
+        await apodAPI.deleteSavedApod(id)
+        setSavedApods(savedApods.filter((apod) => apod._id !== id))
+    }
+
     return (
         <>
             <ProfileInfo user={user} />
             <h3 style={{textAlign:"center", color:"#fff"}}>Saved APODs</h3>
-            <SavedApods savedApods={savedApods} />
+            <SavedApods savedApods={savedApods} deleteApod={deleteApod}/>
             <h3 style={{textAlign:"center", color:"#fff"}}>Posted APODs</h3>
-            <PostedApods postedApods={postedApods} />
+            <PostedApods postedApods={postedApods} deleteApod={deleteApod} />
         </>
     )
 }

@@ -39,10 +39,16 @@ async function getApodDetail(req, res) {
     res.json(apod)
 }
 
+async function deleteSavedApod(req, res) {
+    const apodToDelete = await Apod.findById(req.params.id)
+    res.json(apodToDelete)
+}
+
 module.exports = {
     getApod,
     saveApod,
     getSavedApod,
     getApodDetail,
+    delete:deleteSavedApod,
 }
 

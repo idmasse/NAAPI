@@ -1,15 +1,23 @@
 import { Link } from 'react-router-dom'
 import './SavedApods.css'
 
-export default function SavedApods({ savedApods }) {
+export default function SavedApods({ savedApods, deleteApod }) {
+    
+    const handleDeleteApod = (id) => {
+        deleteApod(id)
+    }
+
     return (
         <div className='saved-apods-container'>
-            {savedApods.map(apod => (
-                <Link to={`/apods/${apod._id}`} key={apod._id}>
-                    <div className='saved-apod'>
+            {savedApods.map((apod) => (
+                <div className='saved-apod' key={apod._id}>
+                    <Link to={`/apods/${apod._id}`} title={apod.title}>
                         <img src={apod.url} alt={apod.title} />
-                    </div>
-                </Link>
+                    </Link>
+                        <div className='overlay'>
+                            <button title="Delete" onClick={() => handleDeleteApod(apod._id)}>x</button>
+                        </div>
+                </div>
             ))}
         </div>
     )

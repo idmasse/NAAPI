@@ -22,3 +22,7 @@ export async function getSavedApod(token) {
 export async function getApodDetail(id) {
     return sendRequest(`${BASE_URL}/${id}`)
 }
+
+export async function deleteSavedApod(id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
+}

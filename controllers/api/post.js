@@ -45,7 +45,7 @@ async function getAllPostedApods(req, res) {
     }, [])
 
     //find all apods with the extracted ids and populate the 'user' field
-    const allPostedApods = await Apod.find({ _id: { $in: apodIds } }).populate('user')
+    const allPostedApods = await Apod.find({ _id: { $in: apodIds } }).populate('user').sort({ date: -1 })
 
     res.json(allPostedApods)
 }

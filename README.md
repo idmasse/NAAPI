@@ -5,12 +5,12 @@
 NAAPI leverages NASA's collection of space-related media, providing an educational and engaging experience for users. The CRUD operations are integral to the user interaction with the application, allowing personalized and dynamic content exploration and social sharing.
 
 ## TECH STACK:
-Frontend: React | HTML | CSS
+Frontend: React | JavaScript | CSS
 <br/>
 Backend: Node | Express | MongoDB
 
 ## Features:
-Explore: Users can explore past and current NASA APOD's (Astronomy Image(s) of the Day), and search for images and videos from NASA's vast image archive based on keywords and oher filtering criteria.
+Explore: Users can explore past and current NASA APOD's (Astronomy Image(s) of the Day), and search for images and videos from NASA's vast image archive based on keywords.
 <br/>
 Bookmark/Save Media: Users can save their favorite media to their profile.
 <br/>
@@ -24,12 +24,24 @@ Create: Users can create accounts and bookmark items.
 <br/>
 Read: Fetch and display images/videos from NASA’s API and user bookmarks.
 <br/>
-Update: Users can update their profiles and modify their bookmarked items.
-<br/>
-Delete: Users can delete their accounts or remove bookmarks.
+Delete: Users can delete their saved images.
 
 ## Additional Features:
 Responsive Design: The app is usable on various devices.
 <br/>
-User Authentication: Implements secure login/logout functionality.
+User Authentication: Implements secure login/logout functionality and authorizations. 
+
+## Future Development
+- Include additional NASA APIs like the Mars Rover image API
+- Implement a better datepicker for mobile and style it 
+- Build out the search api to include more filters and keywords
+- Make user profile pages public to see what images they've saved
+- Ability to comment on posts/edit/delete commments
+- Add timestamps to posts
+- Ability to delete posts
+- Allow users to upload a profile picture and edit a bio
+- CSS active links
+- APOD Saved/Posted successfully messages
+- Ability to see APOD detail page for logged out users
+- Finish responsive design
 
